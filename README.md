@@ -41,18 +41,18 @@ local initialized = false
 
 return {
   export_this_fn = export_this_fn;
-	neovim_stuff = plugin.export {
-  	mappings = {
-  		nM = function() print(123) end;
+  neovim_stuff = plugin.export {
+    mappings = {
+      nM = function() print(123) end;
       silent = true;
-  	};
-  	commands = {
-  		P = function() print(321) end;
-  		D = { function(...) print(initialized, 321, ...) end; nargs = '*'; };
-  		A = 'echo Hello';
-  	};
+    };
+    commands = {
+      P = function() print(321) end;
+      D = { function(...) print(initialized, 321, ...) end; nargs = '*'; };
+      A = 'echo Hello';
+    };
     setup = function()
-  	    -- Do some stuff in here.
+      -- Do some stuff in here.
       initialized = true;
     end;
   }
@@ -102,10 +102,10 @@ The possible values of the key are best explained by examples:
 
 ```lua
 mappings = {
-	['n ff'] = function() require 'ui'.file_fuzzy_finder(vim.loop.cwd()) end;
-	['n ff'] = '<Cmd>FuzzyFileFinder<CR>';
-	['n ff'] = ':FuzzyFileFinder<CR>';
-	['n ff'] = function() vim.cmd "FuzzyFileFinder" end;
+  ['n ff'] = function() require 'ui'.file_fuzzy_finder(vim.loop.cwd()) end;
+  ['n ff'] = '<Cmd>FuzzyFileFinder<CR>';
+  ['n ff'] = ':FuzzyFileFinder<CR>';
+  ['n ff'] = function() vim.cmd "FuzzyFileFinder" end;
 
   -- While you can use expr, with the ability to use Lua, the benefits
   -- are rather limited.
@@ -148,17 +148,17 @@ You can use `buffer = true` to target the current buffer or `buffer = N` to targ
 
 ```lua
 commands = {
-	ColorizerToggle = function() require 'colorizer'.toggle() end;
-	Finder = 'FuzzyFileFinder';
+  ColorizerToggle = function() require 'colorizer'.toggle() end;
+  Finder = 'FuzzyFileFinder';
   Debug = 'echo "123"';
-	PrintIt = {
+  PrintIt = {
     nargs = '*';
     function(args)
       -- args is a single string equivalent to <q-args>
       print(args)
     end
   };
-	PrintEach = {
+  PrintEach = {
     nargs = '*';
     function(args)
       -- args is a single string equivalent to <q-args>
@@ -169,9 +169,9 @@ commands = {
   };
   -- Calling `:Debug 123 321` would print:
   -- "123 321" {bang = "",count = -1,range = { 1, 1, 0 },register = ""}
-	Debug = {
+  Debug = {
     function(args, options)
-	    print(vim.inspect(args), vim.inspect(options))
+      print(vim.inspect(args), vim.inspect(options))
     end
   };
 }
