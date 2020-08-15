@@ -189,3 +189,20 @@ plugin.apply_commands(commands)
 
 TODO An implementation has been created but is in process of being cleaned up
 for autocommands and other events.
+
+# Utilities
+
+- `vim.buffer_store([bufnr=0], [namespace])`
+  - When called without `namespace`, it returns a table local to the buffer specified (or the current buffer if `nil` or `0`).
+  - When called with `namespace`, it will create a subtable on the buffer local table that simplifies checking for initialization.
+    - Equivalent to
+    ```lua
+    local t = vim.buffer_store(bufnr)
+    if not t[namespace] then
+      t[namespace] = {}
+    end
+    return t[namespace]
+    ```
+
+    - You could see why this common pattern would help to use, so that you can isolate your plugin from other plugins.
+    - In order to get a unique key, you can use `vim.api.nvim_create_namespace()`.
