@@ -10,7 +10,7 @@ common theme is that we want to *minimize surprises to the user*:
 - Plugins shouldn't use the api unless the user explicitly asks them to by calling a function.
   - For one time initialization for a plugin, this is achieved by having a `setup()` function
     which will do any initialization required unrelated to key mappings, commands, and events.
-	- Every other call should be encapsulated by functions exported by the plugin.
+  - Every other call should be encapsulated by functions exported by the plugin.
 - Plugins should *ideally* not affect global state unless it's absolutely necessary.
 - Neovim features like key mappings, commands, and events should not be set unless explicitly done
 so by the user by applying the defaults using the `use_defaults()` function, or should be exported in such a form that the user
