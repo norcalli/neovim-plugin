@@ -14,6 +14,12 @@ return plugin.export {
     Butts = 'no_ns';
   };
   attach = function(bufnr)
+    if bufnr == 1 then
+      return
+    end
+    if vim.bo.ft == 'c' then
+      return
+    end
     print('new', bufnr)
     return {
       functions = {
