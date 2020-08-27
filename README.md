@@ -66,10 +66,10 @@ The user can use this as:
 require 'example'.neovim_stuff.use_defaults()
 
 -- Equivalently:
-local plugin = require 'example'.neovim_stuff
-plugin.setup()
-plugin.vim.apply_mappings(plugin.mappings)
-plugin.vim.apply_commands(plugin.commands)
+local example = require 'example'.neovim_stuff
+example.setup()
+example.plugin.apply_mappings(example.mappings)
+example.plugin.apply_commands(example.commands)
 ```
 
 The `export()` function will return a table with the keys:
@@ -79,9 +79,8 @@ The `export()` function will return a table with the keys:
 - `commands` same as input, but validated and normalized.
 - `events` same as input, but validated and normalized.
 - `use_defaults()` runs setup and applies all of the mappings, commands, and events.
-- `vim` a copy of the `neovim-plugin` module used by the plugin so that you can
+- `plugin` a copy of the `neovim-plugin` module used by the plugin so that you can
   use the utility functions in it, like `apply_mappings()` and check its version.
-  - TODO not sure on this naming. Could export all the functions flattened.
 
 ## Syntax
 

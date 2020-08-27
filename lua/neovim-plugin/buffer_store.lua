@@ -49,7 +49,7 @@ return function(vim)
   local store = ASHKAN_NEOVIM_PLUGIN_BUFFER_STORE_DB
 
   local function buffer_store(bufnr, namespace)
-    local buffer_table = store[assert(bufnr)]
+    local buffer_table = store[assert(normalize_bufnr(bufnr))]
     if namespace and buffer_table then
       local subtable = buffer_table[namespace]
       if not subtable then
