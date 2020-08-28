@@ -1,5 +1,5 @@
 local plugin_key = {}
-local buffer_store = require 'neovim-plugin.buffer_store'
+local buffer_store = require 'neovim-plugin/buffer_store'
 local format = string.format
 local concat = table.concat
 local insert = table.insert
